@@ -16,6 +16,7 @@ public class MoveFast {
      */
     public static void main(String[] args) {
         System.out.println("esper que vagi be");
+        System.out.println("ho he vist");
     }
     
 }
