@@ -6,4 +6,6 @@ package movefast.lloguer;
  */
 public class Lloguer {
     
+    //Atributs
+    
 }

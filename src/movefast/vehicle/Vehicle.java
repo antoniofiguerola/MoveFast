@@ -6,4 +6,6 @@ package movefast.vehicle;
  */
 public class Vehicle {
     
+    //Atributs
+    
 }

@@ -6,4 +6,6 @@ package movefast.client;
  */
 public class Client {
     
+    //Atributs
+    
 }

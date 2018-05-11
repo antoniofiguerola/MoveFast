@@ -6,4 +6,6 @@ package movefast.empresaleasing;
  */
 public class EmpresaLeasing {
     
+    //Atributs
+    
 }

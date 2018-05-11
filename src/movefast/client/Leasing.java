@@ -4,6 +4,8 @@ package movefast.client;
  *
  * @author Informatica
  */
-public class Leasing extends Client{
+public class Leasing extends Client {
+    
+    //Atributs
     
 }

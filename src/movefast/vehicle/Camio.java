@@ -4,6 +4,8 @@ package movefast.vehicle;
  *
  * @author Informatica
  */
-public class Camio extends Vehicle{
+public class Camio extends Vehicle {
+    
+    //Atributs
     
 }

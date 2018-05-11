@@ -6,4 +6,6 @@ package movefast.empresamovefast;
  */
 public class EmpresaMoveFast {
     
+    //Atributs
+    
 }
