@@ -10,24 +10,14 @@ public class Lloguer {
     // per fer format Date haurem de fer un import aqui adalt (ja fet)
     //Atributs
     
-    int id;
-    double preu;
-    Date dataInici;
-    Date dataFi;
+    protected double preu;
+    protected Date dataInici;
+    protected Date dataFi;
 
-    public Lloguer(int id, double preu, Date dataInici, Date dataFi) {
-        this.id = id;
+    public Lloguer(double preu, Date dataInici, Date dataFi) {
         this.preu = preu;
         this.dataInici = dataInici;
         this.dataFi = dataFi;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public double getPreu() {
@@ -56,9 +46,7 @@ public class Lloguer {
 
     @Override
     public String toString() {
-        return "Lloguer{" + "id=" + id + ", preu=" + preu + ", dataInici=" + dataInici + ", dataFi=" + dataFi + '}';
+        return "Lloguer{" + "preu=" + preu + ", dataInici=" + dataInici + ", dataFi=" + dataFi + '}';
     }
-    
-    
-    
+
 }
