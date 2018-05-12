@@ -7,13 +7,14 @@ package movefast.vehicle;
 public class Vehicle {
     
     //Atributs
-    String matricula;
-    String bastidor;
-    String marca;
-    String model;
-    int numeroPlaces;
-    double preuDia;
+    protected String matricula;
+    protected String bastidor;
+    protected String marca;
+    protected String model;
+    protected int numeroPlaces;
+    protected double preuDia;
 
+    //constructor
     public Vehicle(String matricula, String bastidor, String marca, String model, int numeroPlaces, double preuDia) {
         this.matricula = matricula;
         this.bastidor = bastidor;
@@ -23,6 +24,7 @@ public class Vehicle {
         this.preuDia = preuDia;
     }
 
+    //Getters i Setters
     public String getMatricula() {
         return matricula;
     }
