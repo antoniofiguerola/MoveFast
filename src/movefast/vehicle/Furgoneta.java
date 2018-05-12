@@ -7,13 +7,15 @@ package movefast.vehicle;
 public class Furgoneta extends Vehicle {
 
     //Atributs
-    private boolean cargaSuperior;
+    protected boolean cargaSuperior;
 
+    //constructor
     public Furgoneta(boolean cargaSuperior, String matricula, String bastidor, String marca, String model, int numeroPlaces, double preuDia) {
         super(matricula, bastidor, marca, model, numeroPlaces, preuDia);
         this.cargaSuperior = cargaSuperior;
     }
 
+    //Getters i Setters
     public boolean isCargaSuperior() {
         return cargaSuperior;
     }
@@ -27,9 +29,4 @@ public class Furgoneta extends Vehicle {
         return "Furgoneta{" + "cargaSuperior=" + cargaSuperior + '}';
     }
 
-    public Furgoneta(String matricula, String bastidor, String marca, String model, int numeroPlaces, double preuDia) {
-        super(matricula, bastidor, marca, model, numeroPlaces, preuDia);
-    }
-
-    //Atributs
 }

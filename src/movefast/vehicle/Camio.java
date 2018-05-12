@@ -7,15 +7,17 @@ package movefast.vehicle;
 public class Camio extends Vehicle {
 
     //Atributs
-    private int longitud;
-    private int pesTara;
+    protected int longitud;
+    protected int pesTara;
 
+    //constructor
     public Camio(int longitud, int pesTara, String matricula, String bastidor, String marca, String model, int numeroPlaces, double preuDia) {
         super(matricula, bastidor, marca, model, numeroPlaces, preuDia);
         this.longitud = longitud;
         this.pesTara = pesTara;
     }
 
+    //Getters i Setters
     public int getLongitud() {
         return longitud;
     }
@@ -37,9 +39,4 @@ public class Camio extends Vehicle {
         return "Camio{" + "longitud=" + longitud + ", pesTara=" + pesTara + '}';
     }
 
-    public Camio(String matricula, String bastidor, String marca, String model, int numeroPlaces, double preuDia) {
-        super(matricula, bastidor, marca, model, numeroPlaces, preuDia);
-    }
-
-    //Atributs
 }

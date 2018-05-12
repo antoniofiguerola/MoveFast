@@ -7,15 +7,17 @@ package movefast.vehicle;
 public class Motocicleta extends Vehicle {
 
     //Atributs
-    private int cilindrada;
-    private String tipusCarnet;
+    protected int cilindrada;
+    protected String tipusCarnet;
 
+    //constructor
     public Motocicleta(int cilindrada, String tipusCarnet, String matricula, String bastidor, String marca, String model, int numeroPlaces, double preuDia) {
         super(matricula, bastidor, marca, model, numeroPlaces, preuDia);
         this.cilindrada = cilindrada;
         this.tipusCarnet = tipusCarnet;
     }
 
+    //Getters i Setters
     public int getCilindrada() {
         return cilindrada;
     }
@@ -37,9 +39,4 @@ public class Motocicleta extends Vehicle {
         return "Motocicleta{" + "cilindrada=" + cilindrada + ", tipusCarnet=" + tipusCarnet + '}';
     }
 
-    public Motocicleta(String matricula, String bastidor, String marca, String model, int numeroPlaces, double preuDia) {
-        super(matricula, bastidor, marca, model, numeroPlaces, preuDia);
-    }
-
-    //Atributs
 }
