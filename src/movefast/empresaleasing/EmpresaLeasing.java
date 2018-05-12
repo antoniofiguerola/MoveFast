@@ -7,11 +7,12 @@ package movefast.empresaleasing;
 public class EmpresaLeasing {
 
     //Atributs
-    String nom;
-    String direccio;
-    int telefon;
-    String contacte;
+    protected String nom;
+    protected String direccio;
+    protected int telefon;
+    protected String contacte;
 
+    //constructor
     public EmpresaLeasing(String nom, String direccio, int telefon, String contacte) {
         this.nom = nom;
         this.direccio = direccio;
@@ -19,6 +20,7 @@ public class EmpresaLeasing {
         this.contacte = contacte;
     }
 
+    //Getters i Setters
     public String getNom() {
         return nom;
     }

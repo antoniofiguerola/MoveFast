@@ -8,18 +8,20 @@ import java.util.Date;
  */
 public class Lloguer {
     // per fer format Date haurem de fer un import aqui adalt (ja fet)
-    //Atributs
     
+    //Atributs    
     protected double preu;
     protected Date dataInici;
     protected Date dataFi;
 
+    //constructor
     public Lloguer(double preu, Date dataInici, Date dataFi) {
         this.preu = preu;
         this.dataInici = dataInici;
         this.dataFi = dataFi;
     }
 
+    //Getters i Setters
     public double getPreu() {
         return preu;
     }

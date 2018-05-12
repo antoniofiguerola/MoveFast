@@ -7,30 +7,22 @@ package movefast.client;
 public class Client {
 
     //Atributs
-    private int id;
-    private String nom;
-    private String cognom;
-    private String DNI;
-    private String direccio;
-    private int telefon;
+    protected String nom;
+    protected String cognom;
+    protected String dni;
+    protected String direccio;
+    protected int telefon;
 
-    public Client(int id, String nom, String cognom, String DNI, String direccio, int telefon) {
-        this.id = id;
+    //constructor
+    public Client(String nom, String cognom, String dni, String direccio, int telefon) {
         this.nom = nom;
         this.cognom = cognom;
-        this.DNI = DNI;
+        this.dni = dni;
         this.direccio = direccio;
         this.telefon = telefon;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
+    //Getters i Setters
     public String getNom() {
         return nom;
     }
@@ -48,11 +40,11 @@ public class Client {
     }
 
     public String getDNI() {
-        return DNI;
+        return dni;
     }
 
-    public void setDNI(String DNI) {
-        this.DNI = DNI;
+    public void setDNI(String dni) {
+        this.dni = dni;
     }
 
     public String getDireccio() {
@@ -73,7 +65,7 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client{" + "id=" + id + ", nom=" + nom + ", cognom=" + cognom + ", DNI=" + DNI + ", direccio=" + direccio + ", telefon=" + telefon + '}';
+        return "Client{" + "nom=" + nom + ", cognom=" + cognom + ", dni=" + dni + ", direccio=" + direccio + ", telefon=" + telefon + '}';
     }
 
 }

@@ -7,11 +7,12 @@ package movefast.client;
 public class Leasing extends Client {
 
     //Atributs
-    private String nifEmpresa;
-    private String nomEmpresa;
+    protected String nifEmpresa;
+    protected String nomEmpresa;
 
-    public Leasing(String nifEmpresa, String nomEmpresa, int id, String nom, String cognom, String DNI, String direccio, int telefon) {
-        super(id, nom, cognom, DNI, direccio, telefon);
+    //constructor
+    public Leasing(String nifEmpresa, String nomEmpresa, String nom, String cognom, String dni, String direccio, int telefon) {
+        super(nom, cognom, dni, direccio, telefon);
         this.nifEmpresa = nifEmpresa;
         this.nomEmpresa = nomEmpresa;
     }

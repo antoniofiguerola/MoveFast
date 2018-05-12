@@ -7,21 +7,12 @@ package movefast.client;
 public class Casual extends Client {
 
     //Atributs
-    private int idContracte;
-    private double preu;
+    protected double preu;
 
-    public Casual(int idContracte, double preu, int id, String nom, String cognom, String DNI, String direccio, int telefon) {
-        super(id, nom, cognom, DNI, direccio, telefon);
-        this.idContracte = idContracte;
+    //constructor
+    public Casual(double preu, String nom, String cognom, String dni, String direccio, int telefon) {
+        super(nom, cognom, dni, direccio, telefon);
         this.preu = preu;
-    }
-
-    public int getIdContracte() {
-        return idContracte;
-    }
-
-    public void setIdContracte(int idContracte) {
-        this.idContracte = idContracte;
     }
 
     public double getPreu() {
@@ -34,7 +25,7 @@ public class Casual extends Client {
 
     @Override
     public String toString() {
-        return "Casual{" + "idContracte=" + idContracte + ", preu=" + preu + '}';
+        return "Casual{" + "preu=" + preu + '}';
     }
 
 }
