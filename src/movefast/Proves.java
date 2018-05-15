@@ -6,6 +6,7 @@
 package movefast;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import movefast.empresamovefast.*;
 import movefast.lloguer.*;
@@ -31,17 +32,7 @@ public class Proves {
         Client cli2 = new Client("Marc", "Grossi", "12345678A", "Can Grossi", 871871871);
         Client cli3 = new Client("Miquel", "Arrom", "87654321B", "Can Miquel", 671671671);
         EmpresaLeasing empLea1 = new EmpresaLeasing("Empresa", "Ca s'Empresa", 971971971, "empresa@empresa.cat");
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        Date datainici = new Date();
-        Date datafi = new Date();
-        try {
-            datainici = sdf.parse("16/05/2018");
-            datafi = sdf.parse("20/05/2018");
-        } catch (Exception e) {
-            System.out.println("Fecha inici / fi introduida no es correcte");
-            return;
-        }
-        Lloguer lloguer1 = new Lloguer(50, datainici, datafi, cotxe1, cli1);
+        Lloguer lloguer1 = new Lloguer(50.0, LocalDate.of(2018, 5, 16), LocalDate.of(2018, 5, 20), cotxe2, cli3);
         // ------------------------------------------------------------------
         emp.crearVehicle(cotxe1);
 //        System.out.println(emp.consultarVehicle("1234abc"));

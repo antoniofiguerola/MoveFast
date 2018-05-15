@@ -1,6 +1,6 @@
 package movefast.lloguer;
 
-import java.util.Date;
+import java.time.LocalDate;
 import movefast.client.*;
 import movefast.vehicle.*;
 
@@ -13,18 +13,12 @@ public class Lloguer {
 
     //Atributs    
     protected double preu;
-    protected Date dataInici;
-    protected Date dataFi;
+    protected LocalDate dataInici;
+    protected LocalDate dataFi;
     protected Vehicle vehicle;
     protected Client client;
 
-    //constructor
-//    public Lloguer(double preu, Date dataInici, Date dataFi) {
-//        this.preu = preu;
-//        this.dataInici = dataInici;
-//        this.dataFi = dataFi;
-//    }
-    public Lloguer(double preu, Date dataInici, Date dataFi, Vehicle vehicle, Client client) {
+    public Lloguer(double preu, LocalDate dataInici, LocalDate dataFi, Vehicle vehicle, Client client) {
         this.preu = preu;
         this.dataInici = dataInici;
         this.dataFi = dataFi;
@@ -41,19 +35,19 @@ public class Lloguer {
         this.preu = preu;
     }
 
-    public Date getDataInici() {
+    public LocalDate getDataInici() {
         return dataInici;
     }
 
-    public void setDataInici(Date dataInici) {
+    public void setDataInici(LocalDate dataInici) {
         this.dataInici = dataInici;
     }
 
-    public Date getDataFi() {
+    public LocalDate getDataFi() {
         return dataFi;
     }
 
-    public void setDataFi(Date dataFi) {
+    public void setDataFi(LocalDate dataFi) {
         this.dataFi = dataFi;
     }
 
