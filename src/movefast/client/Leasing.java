@@ -11,7 +11,7 @@ public class Leasing extends Client {
     protected String nomEmpresa;
 
     //constructor
-    public Leasing(String nifEmpresa, String nomEmpresa, String nom, String cognom, String dni, String direccio, int telefon) {
+    public Leasing(String nom, String cognom, String dni, String direccio, int telefon,String nifEmpresa, String nomEmpresa) {
         super(nom, cognom, dni, direccio, telefon);
         this.nifEmpresa = nifEmpresa;
         this.nomEmpresa = nomEmpresa;
@@ -35,7 +35,7 @@ public class Leasing extends Client {
 
     @Override
     public String toString() {
-        return "Leasing{" + "nifEmpresa=" + nifEmpresa + ", nomEmpresa=" + nomEmpresa + '}';
+        return super.toString() + "Leasing{" + "nifEmpresa=" + nifEmpresa + ", nomEmpresa=" + nomEmpresa + '}';
     }
 
 }

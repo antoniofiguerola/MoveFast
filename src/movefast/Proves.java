@@ -28,9 +28,9 @@ public class Proves {
         EmpresaMoveFast emp = new EmpresaMoveFast("MoveFast", 971971971, "Inca", "abc@abc.com");
         Cotxe cotxe1 = new Cotxe("1234abc", "123456789", "Peugeot", "308", 5, 80.00, 5);
         Cotxe cotxe2 = new Cotxe("4567def", "987654321", "Citroen", "C4 Picasso", 5, 70.00, 5);
-        Client cli1 = new Client("Antonio", "Figuerola", "43135006R", "Ca meva", 971971971);
-        Client cli2 = new Client("Marc", "Grossi", "12345678A", "Can Grossi", 871871871);
-        Client cli3 = new Client("Miquel", "Arrom", "87654321B", "Can Miquel", 671671671);
+        Casual cli1 = new Casual("Antonio", "Figuerola", "43135006R", "Ca meva", 971971971,"Efectiu");
+        Casual cli2 = new Casual("Marc", "Grossi", "12345678A", "Can Grossi", 871871871, "Efectiu");
+        Casual cli3 = new Casual("Miquel", "Arrom", "87654321B", "Can Miquel", 671671671, "Efectiu");
         EmpresaLeasing empLea1 = new EmpresaLeasing("Empresa", "Ca s'Empresa", 971971971, "empresa@empresa.cat");
         Lloguer lloguer1 = new Lloguer(50.0, LocalDate.of(2018, 5, 16), LocalDate.of(2018, 5, 20), cotxe2, cli3);
         // ------------------------------------------------------------------

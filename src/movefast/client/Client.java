@@ -4,7 +4,7 @@ package movefast.client;
  *
  * @author Informatica
  */
-public class Client {
+public abstract class Client {
 
     //Atributs
     protected String nom;

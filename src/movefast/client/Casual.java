@@ -7,25 +7,25 @@ package movefast.client;
 public class Casual extends Client {
 
     //Atributs
-    protected double preu;
+    protected String tipusPagament;
 
     //constructor
-    public Casual(double preu, String nom, String cognom, String dni, String direccio, int telefon) {
+    public Casual(String nom, String cognom, String dni, String direccio, int telefon, String tipusPagament) {
         super(nom, cognom, dni, direccio, telefon);
-        this.preu = preu;
+        this.tipusPagament = tipusPagament;
     }
 
-    public double getPreu() {
-        return preu;
+    public String getTipusPagament() {
+        return tipusPagament;
     }
 
-    public void setPreu(double preu) {
-        this.preu = preu;
+    public void setTipusPagament(String tipusPagament) {
+        this.tipusPagament = tipusPagament;
     }
 
     @Override
     public String toString() {
-        return "Casual{" + "preu=" + preu + '}';
+        return super.toString() + "Casual{" + "tipusPagament=" + tipusPagament + '}';
     }
 
 }
