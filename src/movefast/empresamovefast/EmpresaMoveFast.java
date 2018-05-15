@@ -70,6 +70,10 @@ public class EmpresaMoveFast {
     public void crearVehicle(Vehicle v) {
         vehicles.put(v.getMatricula(), v);
     }
+    
+    public void crearClient(Client cli) {
+        clients.put(cli.getDNI(), cli);
+    }
 
     public void crearLloguer(Lloguer ll) {
         lloguers.add(ll);
@@ -79,20 +83,12 @@ public class EmpresaMoveFast {
         empLeasing.put(empLea.getNom(), empLea);
     }
 
-    public void crearClient(Client cli) {
-        clients.put(cli.getDNI(), cli);
-    }
-
     public Vehicle consultarVehicle(String matricula) {
         return vehicles.get(matricula);
     }
 
     public Client consultarClient(String dni) {
         return clients.get(dni);
-    }
-
-    public EmpresaLeasing consultarEmpresaLeasing(String nom) {
-        return empLeasing.get(nom);
     }
     
     public Lloguer consultarLloguer(double preu) {
@@ -103,6 +99,18 @@ public class EmpresaMoveFast {
             }
         }
         return lloguer;
+    }
+
+    public EmpresaLeasing consultarEmpresaLeasing(String nom) {
+        return empLeasing.get(nom);
+    }
+
+    public void eliminarVehicle(String matricula) {//quin parametre li pas?!
+//        si matricula esta dins vehicle es borra. Pasar un parametre o dos?!
+    }
+    
+    public void eliminarClient(String dni) {//quin parametre li pas?!
+//        si dni esta dins client es borra. Pasar un parametre o dos?!
     }
 
     public void obtenirDades() {
