@@ -11,7 +11,7 @@ public class Camio extends Vehicle {
     protected int pesTara;
 
     //constructor
-    public Camio(int longitud, int pesTara, String matricula, String bastidor, String marca, String model, int numeroPlaces, double preuDia) {
+    public Camio(String matricula, String bastidor, String marca, String model, int numeroPlaces, double preuDia, int longitud, int pesTara) {
         super(matricula, bastidor, marca, model, numeroPlaces, preuDia);
         this.longitud = longitud;
         this.pesTara = pesTara;
@@ -36,7 +36,7 @@ public class Camio extends Vehicle {
 
     @Override
     public String toString() {
-        return "Camio{" + "longitud=" + longitud + ", pesTara=" + pesTara + '}';
+        return super.toString() + "Camio{" + "longitud=" + longitud + ", pesTara=" + pesTara + '}';
     }
 
 }

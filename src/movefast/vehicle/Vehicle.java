@@ -4,8 +4,8 @@ package movefast.vehicle;
  *
  * @author Informatica
  */
-public class Vehicle {
-    
+public abstract class Vehicle { //afegir abatract pq no volem crear objectes vehicle
+
     //Atributs
     protected String matricula;
     protected String bastidor;
@@ -77,5 +77,5 @@ public class Vehicle {
     public String toString() {
         return "Vehicle{" + "matricula=" + matricula + ", bastidor=" + bastidor + ", marca=" + marca + ", model=" + model + ", numeroPlaces=" + numeroPlaces + ", preuDia=" + preuDia + '}';
     }
-        
+
 }

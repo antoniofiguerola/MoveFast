@@ -1,5 +1,12 @@
 package movefast.empresamovefast;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import movefast.client.*;
+import movefast.empresaleasing.EmpresaLeasing;
+import movefast.lloguer.*;
+import movefast.vehicle.*;
+
 /**
  *
  * @author Informatica
@@ -7,10 +14,14 @@ package movefast.empresamovefast;
 public class EmpresaMoveFast {
 
     //Atributs
-    String nom;
-    int telefon;
-    String direccio;
-    String contacte;
+    private String nom;
+    private int telefon;
+    private String direccio;
+    private String contacte;
+    private HashMap<String, Vehicle> vehicles = new HashMap<String, Vehicle>();
+    private HashMap<String, Client> clients = new HashMap<String, Client>();
+    private ArrayList<Lloguer> lloguers = new ArrayList<Lloguer>();
+    private HashMap<String, EmpresaLeasing> empLeasing = new HashMap<String, EmpresaLeasing>();
 
     public EmpresaMoveFast(String nom, int telefon, String direccio, String contacte) {
         this.nom = nom;
@@ -56,32 +67,42 @@ public class EmpresaMoveFast {
         return "EmpresaMoveFast{" + "nom=" + nom + ", telefon=" + telefon + ", direccio=" + direccio + ", contacte=" + contacte + '}';
     }
 
-    public void alta() {
-
+    public void crearVehicle(Vehicle v) {
+        vehicles.put(v.getMatricula(), v);
     }
 
-    public void modificacio() {
-
+    public void crearLloguer(Lloguer ll) {
+        lloguers.add(ll);
     }
 
-    public void crearVehicle() {
-
+    public void crearEmpresaLeasing(EmpresaLeasing empLea) {
+        empLeasing.put(empLea.getNom(), empLea);
     }
 
-    public void crearLloguer() {
-
+    public void crearClient(Client cli) {
+        clients.put(cli.getDNI(), cli);
     }
 
-    public void crearEmpresaLeasing() {
-
+    public Vehicle consultarVehicle(String matricula) {
+        return vehicles.get(matricula);
     }
 
-    public void crearClient() {
-
+    public Client consultarClient(String dni) {
+        return clients.get(dni);
     }
 
-    public void consultarVehicles() {
-
+    public EmpresaLeasing consultarEmpresaLeasing(String nom) {
+        return empLeasing.get(nom);
+    }
+    
+    public Lloguer consultarLloguer(double preu) {
+        Lloguer lloguer = null;
+        for (Lloguer llo : lloguers) {
+            if (preu == llo.getPreu()) {
+                lloguer = llo;
+            }
+        }
+        return lloguer;
     }
 
     public void obtenirDades() {
