@@ -11,14 +11,12 @@ import movefast.vehicle.*;
 public class Lloguer {
 
     //Atributs    
-    protected double preu;//s'ha de llevar
     protected LocalDate dataInici;
     protected LocalDate dataFi;
     protected Vehicle vehicle;
     protected Client client;
 
     public Lloguer(double preu, LocalDate dataInici, LocalDate dataFi, Vehicle vehicle, Client client) {
-        this.preu = preu;//s'ha de llevar
         this.dataInici = dataInici;
         this.dataFi = dataFi;
         this.vehicle = vehicle;
@@ -26,14 +24,6 @@ public class Lloguer {
     }
     
     //Getters i Setters
-    public double getPreu() {
-        return preu;
-    }
-
-    public void setPreu(double preu) {
-        this.preu = preu;
-    }
-
     public LocalDate getDataInici() {
         return dataInici;
     }
@@ -52,7 +42,8 @@ public class Lloguer {
 
     @Override
     public String toString() {
-        return "Lloguer{" + "preu=" + preu + ", dataInici=" + dataInici + ", dataFi=" + dataFi + ", vehicle=" + vehicle + ", client=" + client + '}';
+        return "Lloguer{" + "dataInici=" + dataInici + ", dataFi=" + dataFi + ", vehicle=" + vehicle + ", client=" + client + '}';
     }
+
 
 }

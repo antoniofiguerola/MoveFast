@@ -22,8 +22,8 @@ public class EmpresaMoveFast {
     private String contacte;
     private HashMap<String, Vehicle> vehicles;
     private HashMap<String, Client> clients;
-    private ArrayList<Lloguer> lloguers = new ArrayList<Lloguer>();
-    private HashMap<String, EmpresaLeasing> empLeasing = new HashMap<String, EmpresaLeasing>();
+    private ArrayList<Lloguer> lloguers;
+    private HashMap<String, EmpresaLeasing> empLeasing;
 
     public EmpresaMoveFast(String nom, int telefon, String direccio, String contacte) {
         this.nom = nom;
@@ -101,15 +101,9 @@ public class EmpresaMoveFast {
         return clients.get(dni);
     }
 
-    public Lloguer consultarLloguer(double preu) {//metodo consultalloguerclient i consultarlloguerempresaleasing
-        Lloguer lloguer = null;
-        for (Lloguer llo : lloguers) {
-            if (preu == llo.getPreu()) {
-                lloguer = llo;
-            }
-        }
-        return lloguer; // afegir lloguers dins conteneadors o algo parescut
-    }
+//    public Lloguer consultarLloguer(double preu) {//metodo consultalloguerclient i consultarlloguerempresaleasing
+//    
+//    }
 
     public EmpresaLeasing consultarEmpresaLeasing(String nom) {
         return empLeasing.get(nom);
