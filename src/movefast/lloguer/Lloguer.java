@@ -1,6 +1,7 @@
 package movefast.lloguer;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import movefast.client.*;
 import movefast.vehicle.*;
 
@@ -22,7 +23,7 @@ public class Lloguer {
         this.vehicle = vehicle;
         this.client = client;
     }
-    
+
     //Getters i Setters
     public LocalDate getDataInici() {
         return dataInici;
@@ -40,10 +41,19 @@ public class Lloguer {
         this.dataFi = dataFi;
     }
 
+    public ArrayList<Lloguer> consultaLloguerClient(Client client) {
+        ArrayList<Lloguer> lloguersClient = new ArrayList<Lloguer>();
+
+        for (int i = 0; i < lloguersClient.size(); i++) {
+            System.out.println(lloguersClient.get(i));
+
+        }
+        return lloguersClient;
+    }
+
     @Override
     public String toString() {
         return "Lloguer{" + "dataInici=" + dataInici + ", dataFi=" + dataFi + ", vehicle=" + vehicle + ", client=" + client + '}';
     }
-
 
 }
