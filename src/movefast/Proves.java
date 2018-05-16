@@ -46,7 +46,12 @@ public class Proves {
         System.out.println(emp.consultarEmpresaLeasing("Empresa"));
         emp.crearLloguer(lloguer1);
         System.out.println(emp.consultarLloguer(50.0));
-
+//        emp.eliminarVehicle("4567def");
+//        emp.eliminarClient("87654321B");
+        System.out.println(emp.consultarVehicle("4567def"));
+        System.out.println(emp.consultarClient("87654321B"));
+        emp.mostraVehicles();
+        emp.mostraClients();
     }
 
 }

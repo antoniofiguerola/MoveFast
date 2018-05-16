@@ -2,8 +2,9 @@ package movefast.empresamovefast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import movefast.client.*;
-import movefast.empresaleasing.EmpresaLeasing;
+import movefast.empresaleasing.*;
 import movefast.lloguer.*;
 import movefast.vehicle.*;
 
@@ -70,7 +71,7 @@ public class EmpresaMoveFast {
     public void crearVehicle(Vehicle v) {
         vehicles.put(v.getMatricula(), v);
     }
-    
+
     public void crearClient(Client cli) {
         clients.put(cli.getDNI(), cli);
     }
@@ -90,7 +91,7 @@ public class EmpresaMoveFast {
     public Client consultarClient(String dni) {
         return clients.get(dni);
     }
-    
+
     public Lloguer consultarLloguer(double preu) {
         Lloguer lloguer = null;
         for (Lloguer llo : lloguers) {
@@ -105,12 +106,16 @@ public class EmpresaMoveFast {
         return empLeasing.get(nom);
     }
 
-    public void eliminarVehicle(String matricula) {//quin parametre li pas?!
-//        si matricula esta dins vehicle es borra. Pasar un parametre o dos?!
+    public void eliminarVehicle(String matricula) {
+        if (vehicles.containsKey(matricula)) {
+            vehicles.remove(matricula);
+        }
     }
-    
-    public void eliminarClient(String dni) {//quin parametre li pas?!
-//        si dni esta dins client es borra. Pasar un parametre o dos?!
+
+    public void eliminarClient(String dni) {
+        if (clients.containsKey(dni)) {
+            clients.remove(dni);
+        }
     }
 
     public void obtenirDades() {
@@ -124,4 +129,23 @@ public class EmpresaMoveFast {
     public void retirarVehicle() {
 
     }
+
+    public void mostraVehicles() {
+        for (Map.Entry<String, Vehicle> entry : vehicles.entrySet()) {
+            System.out.println("clave=" + entry.getKey() + ", valor=" + entry.getValue());
+        }
+        System.out.println("");
+    }
+    
+    public void mostraClients() {
+        for (Map.Entry<String, Client> entry : clients.entrySet()) {
+            System.out.println("clave=" + entry.getKey() + ", valor=" + entry.getValue());
+        }
+        System.out.println("");
+    }
+//    para recorrer hashmap
+//    for (Map.Entry<Integer, String> entry : datos.entrySet () ) {
+//    System.out.println("clave=" + entry.getKey() + ", valor=" + entry.getValue());
+//    }
+    
 }

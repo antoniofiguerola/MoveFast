@@ -11,7 +11,7 @@ public class Leasing extends Client {
     protected String nomEmpresa;
 
     //constructor
-    public Leasing(String nom, String cognom, String dni, String direccio, int telefon,String nifEmpresa, String nomEmpresa) {
+    public Leasing(String nom, String cognom, String dni, String direccio, int telefon, String nifEmpresa, String nomEmpresa) {
         super(nom, cognom, dni, direccio, telefon);
         this.nifEmpresa = nifEmpresa;
         this.nomEmpresa = nomEmpresa;
