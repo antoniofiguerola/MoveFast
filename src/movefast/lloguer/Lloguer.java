@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import movefast.client.*;
 import movefast.vehicle.*;
+import movefast.empresamovefast.*;
 
 /**
  *
@@ -41,14 +42,12 @@ public class Lloguer {
         this.dataFi = dataFi;
     }
 
-    public ArrayList<Lloguer> consultaLloguerClient(Client client) {
-        ArrayList<Lloguer> lloguersClient = new ArrayList<Lloguer>();
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
 
-        for (int i = 0; i < lloguersClient.size(); i++) {
-            System.out.println(lloguersClient.get(i));
-
-        }
-        return lloguersClient;
+    public Client getClient() {
+        return client;
     }
 
     @Override

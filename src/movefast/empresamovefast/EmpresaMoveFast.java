@@ -104,6 +104,18 @@ public class EmpresaMoveFast {
 //    public Lloguer consultarLloguer(double preu) {//metodo consultalloguerclient i consultarlloguerempresaleasing
 //    
 //    }
+    
+    public ArrayList<Lloguer> consultaLloguerClient(Client client) {
+        ArrayList<Lloguer> lloguersClient = new ArrayList<Lloguer>();
+        
+
+        for (Lloguer lloguer : lloguers) {
+            if(lloguer.getClient().equals(client)){
+                lloguersClient.add(lloguer);
+            }
+        }
+        return lloguersClient;
+    }
 
     public EmpresaLeasing consultarEmpresaLeasing(String nom) {
         return empLeasing.get(nom);

@@ -54,6 +54,8 @@ public class Proves {
         System.out.println(emp.consultarClient("87654321B"));
         emp.mostraVehicles();
         emp.mostraClients();
+        
+        System.out.println(emp.consultaLloguerClient(cli3));
     }
 
 }
