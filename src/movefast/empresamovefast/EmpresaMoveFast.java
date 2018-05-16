@@ -127,9 +127,29 @@ public class EmpresaMoveFast {
         }
     }
 
-    public void obtenirDades() {
-
-    }
+    public void obtenirDades(Client cli, Vehicle v) {
+        // farem un import de Field
+//        Field[] Clients = cli.getClass().getDeclaredFields();
+//        for (Field field : Clients) {
+//            try {
+//                String fieldName = field.getName();
+//                Object fieldValue = field.get(cli);
+//                System.out.println(fieldName + ":" + fieldValue);
+//            } catch (IllegalArgumentException | IllegalAccessException e) {
+//                e.printStackTrace();
+//            }
+            cli.getNom();
+            cli.getCognom();
+            cli.getDNI();
+            cli.getDireccio();
+            cli.getTelefon();
+            v.getBastidor();
+            v.getMarca();
+            v.getMatricula();
+            v.getModel();
+            v.getNumeroPlaces();
+            v.getPreuDia();
+        }
 
     public void entregarVehicle() {
 
