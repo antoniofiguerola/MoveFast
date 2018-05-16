@@ -13,6 +13,7 @@ public abstract class Vehicle { //afegir abatract pq no volem crear objectes veh
     protected String model;
     protected int numeroPlaces;
     protected double preuDia;
+    protected boolean disponible;
 
     //constructor
     public Vehicle(String matricula, String bastidor, String marca, String model, int numeroPlaces, double preuDia) {
@@ -73,9 +74,17 @@ public abstract class Vehicle { //afegir abatract pq no volem crear objectes veh
         this.preuDia = preuDia;
     }
 
+    public boolean isDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
+    }
+
     @Override
     public String toString() {
-        return "Vehicle{" + "matricula=" + matricula + ", bastidor=" + bastidor + ", marca=" + marca + ", model=" + model + ", numeroPlaces=" + numeroPlaces + ", preuDia=" + preuDia + '}';
+        return "Vehicle{" + "matricula=" + matricula + ", bastidor=" + bastidor + ", marca=" + marca + ", model=" + model + ", numeroPlaces=" + numeroPlaces + ", preuDia=" + preuDia + ", disponible=" + disponible + '}';
     }
 
 }

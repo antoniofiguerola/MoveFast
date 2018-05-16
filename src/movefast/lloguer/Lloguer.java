@@ -9,7 +9,6 @@ import movefast.vehicle.*;
  * @author Informatica
  */
 public class Lloguer {
-    // per fer format Date haurem de fer un import aqui adalt (ja fet)
 
     //Atributs    
     protected double preu;
