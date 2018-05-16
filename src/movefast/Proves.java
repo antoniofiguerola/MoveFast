@@ -5,9 +5,7 @@
  */
 package movefast;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 import movefast.empresamovefast.*;
 import movefast.lloguer.*;
 import movefast.vehicle.*;
@@ -32,8 +30,8 @@ public class Proves {
         Casual cli1 = new Casual("Antonio", "Figuerola", "43135006R", "Ca meva", 971971971, "Efectiu");
         Casual cli2 = new Casual("Marc", "Grossi", "12345678A", "Can Grossi", 871871871, "Efectiu");
         Casual cli3 = new Casual("Miquel", "Arrom", "87654321B", "Can Miquel", 671671671, "Efectiu");
-        Leasing clil1 = new Leasing("Andreu", "Apellido", "15935746Z", "Direccio", 951357468, "B13535746", "EmpresaClil1");
         EmpresaLeasing empLea1 = new EmpresaLeasing("Empresa", "Ca s'Empresa", 971971971, "empresa@empresa.cat");
+        Leasing clil1 = new Leasing("Andreu", "Apellido", "15935746Z", "Direccio", 951357468, empLea1);
         Lloguer lloguer1 = new Lloguer(50.0, LocalDate.of(2018, 5, 16), LocalDate.of(2018, 5, 20), cotxe2, cli3);
         // ------------------------------------------------------------------
         emp.crearVehicle(cotxe1);

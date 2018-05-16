@@ -1,6 +1,7 @@
 package movefast.empresamovefast;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import movefast.client.*;
@@ -19,8 +20,8 @@ public class EmpresaMoveFast {
     private int telefon;
     private String direccio;
     private String contacte;
-    private HashMap<String, Vehicle> vehicles = new HashMap<String, Vehicle>();
-    private HashMap<String, Client> clients = new HashMap<String, Client>();
+    private HashMap<String, Vehicle> vehicles;
+    private HashMap<String, Client> clients;
     private ArrayList<Lloguer> lloguers = new ArrayList<Lloguer>();
     private HashMap<String, EmpresaLeasing> empLeasing = new HashMap<String, EmpresaLeasing>();
 
@@ -29,6 +30,10 @@ public class EmpresaMoveFast {
         this.telefon = telefon;
         this.direccio = direccio;
         this.contacte = contacte;
+        vehicles = new HashMap<String, Vehicle>();
+        clients = new HashMap<String, Client>();
+        lloguers = new ArrayList<Lloguer>();
+        empLeasing = new HashMap<String, EmpresaLeasing>();
     }
 
     public String getNom() {
@@ -63,6 +68,10 @@ public class EmpresaMoveFast {
         this.contacte = contacte;
     }
 
+    public Collection<Client> getClients() {
+        return clients.values();// no ha de retornar aixo
+    }
+
     @Override
     public String toString() {
         return "EmpresaMoveFast{" + "nom=" + nom + ", telefon=" + telefon + ", direccio=" + direccio + ", contacte=" + contacte + '}';
@@ -92,14 +101,14 @@ public class EmpresaMoveFast {
         return clients.get(dni);
     }
 
-    public Lloguer consultarLloguer(double preu) {
+    public Lloguer consultarLloguer(double preu) {//metodo consultalloguerclient i consultarlloguerempresaleasing
         Lloguer lloguer = null;
         for (Lloguer llo : lloguers) {
             if (preu == llo.getPreu()) {
                 lloguer = llo;
             }
         }
-        return lloguer;
+        return lloguer; // afegir lloguers dins conteneadors o algo parescut
     }
 
     public EmpresaLeasing consultarEmpresaLeasing(String nom) {

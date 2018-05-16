@@ -7,7 +7,7 @@ package movefast.client;
 public class Casual extends Client {
 
     //Atributs
-    protected String tipusPagament;
+    protected String tipusPagament; //fer enum
 
     //constructor
     public Casual(String nom, String cognom, String dni, String direccio, int telefon, String tipusPagament) {

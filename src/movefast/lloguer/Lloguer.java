@@ -11,20 +11,20 @@ import movefast.vehicle.*;
 public class Lloguer {
 
     //Atributs    
-    protected double preu;
+    protected double preu;//s'ha de llevar
     protected LocalDate dataInici;
     protected LocalDate dataFi;
     protected Vehicle vehicle;
     protected Client client;
 
     public Lloguer(double preu, LocalDate dataInici, LocalDate dataFi, Vehicle vehicle, Client client) {
-        this.preu = preu;
+        this.preu = preu;//s'ha de llevar
         this.dataInici = dataInici;
         this.dataFi = dataFi;
         this.vehicle = vehicle;
         this.client = client;
     }
-
+    
     //Getters i Setters
     public double getPreu() {
         return preu;
