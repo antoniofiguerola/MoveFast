@@ -16,13 +16,14 @@ public abstract class Vehicle { //afegir abatract pq no volem crear objectes veh
     protected boolean disponible;
 
     //constructor
-    public Vehicle(String matricula, String bastidor, String marca, String model, int numeroPlaces, double preuDia) {
+    public Vehicle(String matricula, String bastidor, String marca, String model, int numeroPlaces, double preuDia, boolean disponible) {
         this.matricula = matricula;
         this.bastidor = bastidor;
         this.marca = marca;
         this.model = model;
         this.numeroPlaces = numeroPlaces;
         this.preuDia = preuDia;
+        this.disponible = disponible;
     }
 
     //Getters i Setters

@@ -11,8 +11,8 @@ public class Camio extends Vehicle {
     protected int pesTara;
 
     //constructor
-    public Camio(String matricula, String bastidor, String marca, String model, int numeroPlaces, double preuDia, int longitud, int pesTara) {
-        super(matricula, bastidor, marca, model, numeroPlaces, preuDia);
+    public Camio(String matricula, String bastidor, String marca, String model, int numeroPlaces, double preuDia, boolean disponible, int longitud, int pesTara) {
+        super(matricula, bastidor, marca, model, numeroPlaces, preuDia, disponible);
         this.longitud = longitud;
         this.pesTara = pesTara;
     }

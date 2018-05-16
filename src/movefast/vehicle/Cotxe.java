@@ -10,8 +10,8 @@ public class Cotxe extends Vehicle {
     protected int numeroPortes;
 
     //constructor
-    public Cotxe(String matricula, String bastidor, String marca, String model, int numeroPlaces, double preuDia, int numeroPortes) {
-        super(matricula, bastidor, marca, model, numeroPlaces, preuDia);
+    public Cotxe(String matricula, String bastidor, String marca, String model, int numeroPlaces, double preuDia, boolean disponible, int numeroPortes) {
+        super(matricula, bastidor, marca, model, numeroPlaces, preuDia, disponible);
         this.numeroPortes = numeroPortes;
     }
 
