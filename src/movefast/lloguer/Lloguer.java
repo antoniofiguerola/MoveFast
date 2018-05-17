@@ -19,6 +19,7 @@ public class Lloguer {
     protected Client client;
 
     public Lloguer(LocalDate dataInici, LocalDate dataFi, Vehicle vehicle, Client client) {
+        
         this.dataInici = dataInici;
         this.dataFi = dataFi;
         this.vehicle = vehicle;
@@ -49,6 +50,8 @@ public class Lloguer {
     public Client getClient() {
         return client;
     }
+
+    
 
     @Override
     public String toString() {

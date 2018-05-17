@@ -102,8 +102,20 @@ public class EmpresaMoveFast {
         return clients.get(dni);
     }
 
+    public boolean consultarDisponibilitat(LocalDate dataInici, LocalDate dataFi) {
+        boolean disponible = false;
+         for (Lloguer lloguer : lloguers) {
+            if (lloguer.getDataInici().isBefore(dataInici) && lloguer.getDataFi().isAfter(dataFi)) {
+                disponible = true;
+                return disponible;
+            }
+        }
+        return disponible;
+
+    }
+
     public Lloguer consultarLloguer(LocalDate dataInici, LocalDate dataFi) {//metodo consultalloguerclient i consultarlloguerempresaleasing
-        
+
         for (Lloguer lloguer : lloguers) {
             if (lloguer.getDataInici().equals(dataInici) && lloguer.getDataFi().equals(dataFi)) {
                 return lloguer;
@@ -128,7 +140,7 @@ public class EmpresaMoveFast {
 
         for (Lloguer lloguer : lloguers) {
             if (lloguer.getClient() instanceof Leasing
-                    && ((Leasing) lloguer.getClient()).getEmpresaLeasing().equals(empLea)) {
+                    && ((Leasing) lloguer.getClient()).getEmpresaLeasing().equals(empLea)) { //casting
                 lloguersEmpresa.add(lloguer);
             }
         }
