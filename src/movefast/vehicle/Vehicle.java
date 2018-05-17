@@ -13,17 +13,17 @@ public abstract class Vehicle { //afegir abatract pq no volem crear objectes veh
     protected String model;
     protected int numeroPlaces;
     protected double preuDia;
-    protected boolean disponible;
+//    protected boolean disponible;
 
     //constructor
-    public Vehicle(String matricula, String bastidor, String marca, String model, int numeroPlaces, double preuDia, boolean disponible) {
+    public Vehicle(String matricula, String bastidor, String marca, String model, int numeroPlaces, double preuDia) {
         this.matricula = matricula;
         this.bastidor = bastidor;
         this.marca = marca;
         this.model = model;
         this.numeroPlaces = numeroPlaces;
         this.preuDia = preuDia;
-        this.disponible = disponible;
+//        this.disponible = disponible;
     }
 
     //Getters i Setters
@@ -75,17 +75,18 @@ public abstract class Vehicle { //afegir abatract pq no volem crear objectes veh
         this.preuDia = preuDia;
     }
 
-    public boolean isDisponible() {
-        return disponible;
-    }
-
-    public void setDisponible(boolean disponible) {
-        this.disponible = disponible;
-    }
+//    public boolean isDisponible() {
+//        return disponible;
+//    }
+//
+//    public void setDisponible(boolean disponible) {
+//        this.disponible = disponible;
+//    }
 
     @Override
     public String toString() {
-        return "Vehicle{" + "matricula=" + matricula + ", bastidor=" + bastidor + ", marca=" + marca + ", model=" + model + ", numeroPlaces=" + numeroPlaces + ", preuDia=" + preuDia + ", disponible=" + disponible + '}';
+        return "Vehicle{" + "matricula=" + matricula + ", bastidor=" + bastidor + ", marca=" + marca + ", model=" + model + ", numeroPlaces=" + numeroPlaces + ", preuDia=" + preuDia + '}';
     }
+
 
 }

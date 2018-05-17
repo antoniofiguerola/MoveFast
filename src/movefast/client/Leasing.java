@@ -24,6 +24,10 @@ public class Leasing extends Client {
         this.empresaLeasing = empresaLeasing;
     }
 
+    public EmpresaLeasing getEmpresaLeasing() {
+        return empresaLeasing;
+    }
+
 //    public String getNifEmpresa() {
 //        return nifEmpresa;
 //    }
@@ -41,7 +45,7 @@ public class Leasing extends Client {
 //    }
     @Override
     public String toString() {
-        return "Leasing{" + "empresaLeasing=" + empresaLeasing + '}';
+        return super.toString() + "Leasing{" + "empresaLeasing=" + empresaLeasing + '}';
     }
 
 }

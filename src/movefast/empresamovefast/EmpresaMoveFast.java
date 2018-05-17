@@ -1,5 +1,6 @@
 package movefast.empresamovefast;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -101,20 +102,42 @@ public class EmpresaMoveFast {
         return clients.get(dni);
     }
 
-//    public Lloguer consultarLloguer(double preu) {//metodo consultalloguerclient i consultarlloguerempresaleasing
-//    
-//    }
-    
+    public Lloguer consultarLloguer(LocalDate dataInici, LocalDate dataFi) {//metodo consultalloguerclient i consultarlloguerempresaleasing
+        
+        for (Lloguer lloguer : lloguers) {
+            if (lloguer.getDataInici().equals(dataInici) && lloguer.getDataFi().equals(dataFi)) {
+                return lloguer;
+            }
+        }
+        return null;
+    }
+
     public ArrayList<Lloguer> consultaLloguerClient(Client client) {
         ArrayList<Lloguer> lloguersClient = new ArrayList<Lloguer>();
-        
 
         for (Lloguer lloguer : lloguers) {
-            if(lloguer.getClient().equals(client)){
+            if (lloguer.getClient().equals(client)) {
                 lloguersClient.add(lloguer);
             }
         }
         return lloguersClient;
+    }
+
+    public ArrayList<Lloguer> consultaLloguerEmpresa(EmpresaLeasing empLea) {
+        ArrayList<Lloguer> lloguersEmpresa = new ArrayList<Lloguer>();
+
+        for (Lloguer lloguer : lloguers) {
+            if (lloguer.getClient() instanceof Leasing
+                    && ((Leasing) lloguer.getClient()).getEmpresaLeasing().equals(empLea)) {
+                lloguersEmpresa.add(lloguer);
+            }
+        }
+//        for (Lloguer lloguer : lloguers) {
+//            if (clients.containsValue(empLea)) {
+//                lloguersEmpresa.add(lloguer);
+//            }
+//        }
+        return lloguersEmpresa;
     }
 
     public EmpresaLeasing consultarEmpresaLeasing(String nom) {
@@ -144,18 +167,18 @@ public class EmpresaMoveFast {
 //            } catch (IllegalArgumentException | IllegalAccessException e) {
 //                e.printStackTrace();
 //            }
-            cli.getNom();
-            cli.getCognom();
-            cli.getDNI();
-            cli.getDireccio();
-            cli.getTelefon();
-            v.getBastidor();
-            v.getMarca();
-            v.getMatricula();
-            v.getModel();
-            v.getNumeroPlaces();
-            v.getPreuDia();
-        }
+        cli.getNom();
+        cli.getCognom();
+        cli.getDNI();
+        cli.getDireccio();
+        cli.getTelefon();
+        v.getBastidor();
+        v.getMarca();
+        v.getMatricula();
+        v.getModel();
+        v.getNumeroPlaces();
+        v.getPreuDia();
+    }
 
     public void entregarVehicle() {
 
@@ -171,7 +194,7 @@ public class EmpresaMoveFast {
         }
         System.out.println("");
     }
-    
+
     public void mostraClients() {
         for (Map.Entry<String, Client> entry : clients.entrySet()) {
             System.out.println("clave=" + entry.getKey() + ", valor=" + entry.getValue());
@@ -182,5 +205,5 @@ public class EmpresaMoveFast {
 //    for (Map.Entry<Integer, String> entry : datos.entrySet () ) {
 //    System.out.println("clave=" + entry.getKey() + ", valor=" + entry.getValue());
 //    }
-    
+
 }

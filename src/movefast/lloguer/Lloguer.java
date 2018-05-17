@@ -18,7 +18,7 @@ public class Lloguer {
     protected Vehicle vehicle;
     protected Client client;
 
-    public Lloguer(double preu, LocalDate dataInici, LocalDate dataFi, Vehicle vehicle, Client client) {
+    public Lloguer(LocalDate dataInici, LocalDate dataFi, Vehicle vehicle, Client client) {
         this.dataInici = dataInici;
         this.dataFi = dataFi;
         this.vehicle = vehicle;

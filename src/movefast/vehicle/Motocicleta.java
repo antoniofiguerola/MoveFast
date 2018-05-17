@@ -11,8 +11,8 @@ public class Motocicleta extends Vehicle {
     protected String tipusCarnet;
 
     //constructor
-    public Motocicleta(String matricula, String bastidor, String marca, String model, int numeroPlaces, double preuDia, boolean disponible, int cilindrada, String tipusCarnet) {
-        super(matricula, bastidor, marca, model, numeroPlaces, preuDia, disponible);
+    public Motocicleta(String matricula, String bastidor, String marca, String model, int numeroPlaces, double preuDia,/* boolean disponible,*/ int cilindrada, String tipusCarnet) {
+        super(matricula, bastidor, marca, model, numeroPlaces, preuDia/*, disponible*/);
         this.cilindrada = cilindrada;
         this.tipusCarnet = tipusCarnet;
     }
