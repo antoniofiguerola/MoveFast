@@ -46,9 +46,9 @@ public class Proves {
             Leasing clil1 = new Leasing("Andreu", "Apellido", "15935746Z", "Direccio", 951357468, empLea1);
             Leasing clil2 = new Leasing("Andreu2", "Apellido", "25935746Z", "Direccio", 951357468, empLea2);
             Leasing clil3 = new Leasing("Andreu3", "Apellido", "35935746Z", "Direccio", 951357468, empLea3);
-            Lloguer lloguer1 = new Lloguer(LocalDate.of(2018, 5, 25), LocalDate.of(2018, 5, 27), cotxe2, cli3);
+            Lloguer lloguer1 = new Lloguer(LocalDate.of(2018, 5, 27), LocalDate.of(2018, 5, 27), cotxe2, cli3);
             Lloguer lloguer2 = new Lloguer(LocalDate.of(2018, 5, 21), LocalDate.of(2018, 5, 24), cotxe3, cli3);
-            Lloguer lloguer3 = new Lloguer(LocalDate.of(2018, 5, 25), LocalDate.of(2018, 5, 29), camio1, clil1);
+            Lloguer lloguer3 = new Lloguer(LocalDate.of(2018, 6, 25), LocalDate.of(2018, 6, 29), camio1, clil1);
             // ------------------------------------------------------------------
             emp.crearVehicle(cotxe1);
             //        System.out.println(emp.consultarVehicle("1234abc"));

@@ -53,14 +53,14 @@ public class Lloguer {
 
     public void setDataInici(LocalDate dataInici) throws Exepcio {
         if (dataInici.isBefore(LocalDate.now()) || dataInici.isEqual(LocalDate.now())) {
-            throw new Exepcio("La data no pot ser anterior o avui"+dataInici);
+            throw new Exepcio("La data inici no pot ser anterior a avui ni tampoc potser avui");
         }
         this.dataInici = dataInici;
     }
 
     public void setDataFi(LocalDate dataFi) throws Exepcio {
         if (dataFi.isBefore(dataInici)) {
-            throw new Exepcio("La data no pot ser anterior o posterior a avui");
+            throw new Exepcio("La data fi no pot ser anterior a la data inici");
         }
         this.dataFi = dataFi;
     }
