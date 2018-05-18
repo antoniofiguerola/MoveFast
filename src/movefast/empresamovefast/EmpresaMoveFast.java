@@ -219,7 +219,17 @@ public class EmpresaMoveFast {
     }
 
     public void eliminarEmpresaLeasing(String nom) {//es necesari?!
-
+             if (empLeasing.containsKey(nom)){
+                 EmpresaLeasing empresaLeasing = empLeasing.get(nom);
+                 if (empresaLeasing != null){
+                     for(Lloguer lloguer : lloguers){
+                         if (lloguer.getClient().equals(empresaLeasing)) {
+                             return;
+                         }
+                     }
+                     empLeasing.remove(nom);
+                 }
+             }
     }
 
     public double calcularPreuLloguer(Lloguer ll) {
