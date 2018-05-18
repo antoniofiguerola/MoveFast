@@ -25,7 +25,7 @@ public class Casual extends Client {
 
     @Override
     public String toString() {
-        return super.toString() + "Casual{" + "tipusPagament=" + tipusPagament + '}';
+        return super.toString() + " es un tipus de client Casual " + " que paga amb " + tipusPagament;
     }
 
 }
