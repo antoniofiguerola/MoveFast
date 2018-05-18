@@ -88,11 +88,11 @@ public class EmpresaMoveFast {
     }
 
     public void crearLloguer(Lloguer ll) {
-//        if (consultarDisponibilitat(ll.getDataInici(), ll.getDataFi())) {
-        lloguers.add(ll);
-//        } else {
-//            //no se que posar!
-//        }
+        if (consultarDisponibilitat(ll.getDataInici(), ll.getDataFi(), ll.getVehicle())) {
+            lloguers.add(ll);
+        } else {
+            //hem de posar excepcio
+        }
     }
 
     public void crearEmpresaLeasing(EmpresaLeasing empLea) {
@@ -113,19 +113,24 @@ public class EmpresaMoveFast {
         return clients.get(dni);
     }
 
-    public boolean consultarDisponibilitat(LocalDate dataInici, LocalDate dataFi) {//no funciona
-        boolean disponible = false;
+    public boolean consultarDisponibilitat(LocalDate dataInici, LocalDate dataFi, Vehicle v) {//no funciona
+        boolean disponible = true;
+
         for (Lloguer lloguer : lloguers) {
+
+            if (lloguer.getVehicle().equals(v)) {
+
+            }
 //            Versio Toni
-            if (dataInici.isAfter(lloguer.getDataFi()) || dataFi.isBefore(lloguer.getDataInici())) {
-                disponible = true;
+            if (!(dataInici.isAfter(lloguer.getDataFi()) || dataFi.isBefore(lloguer.getDataInici()))) {
+                disponible = false;
                 return disponible;
             }
 //            Versio Marc
-            if (!(lloguer.getDataInici().isBefore(dataInici) && lloguer.getDataFi().isAfter(dataFi))) {
-                disponible = true;
-                return disponible;
-            }
+//            if (!(lloguer.getDataInici().isBefore(dataInici) && lloguer.getDataFi().isAfter(dataFi))) {
+//                disponible = true;
+//                return disponible;
+//            }
         }
         return disponible;
     }
