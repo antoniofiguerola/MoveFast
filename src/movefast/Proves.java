@@ -41,8 +41,9 @@ public class Proves {
         Leasing clil1 = new Leasing("Andreu", "Apellido", "15935746Z", "Direccio", 951357468, empLea1);
         Leasing clil2 = new Leasing("Andreu2", "Apellido", "25935746Z", "Direccio", 951357468, empLea2);
         Leasing clil3 = new Leasing("Andreu3", "Apellido", "35935746Z", "Direccio", 951357468, empLea3);
-        Lloguer lloguer1 = new Lloguer(LocalDate.of(2018, 5, 16), LocalDate.of(2018, 5, 20), cotxe2, cli3);
+        Lloguer lloguer1 = new Lloguer(LocalDate.of(2018, 5, 25), LocalDate.of(2018, 5, 27), cotxe2, cli3);
         Lloguer lloguer2 = new Lloguer(LocalDate.of(2018, 5, 21), LocalDate.of(2018, 5, 24), cotxe3, cli3);
+        Lloguer lloguer3 = new Lloguer(LocalDate.of(2018, 5, 25), LocalDate.of(2018, 5, 29), camio1, clil1);
         // ------------------------------------------------------------------
         emp.crearVehicle(cotxe1);
 //        System.out.println(emp.consultarVehicle("1234abc"));
@@ -67,6 +68,7 @@ public class Proves {
 //        System.out.println(emp.consultarEmpresaLeasing("Empresa"));
         emp.crearLloguer(lloguer1);
         emp.crearLloguer(lloguer2);
+        emp.crearLloguer(lloguer3);
 //        System.out.println(emp.consultarLloguer(50.0));
 //        emp.eliminarVehicle("4567def");
 //        emp.eliminarClient("87654321B");
@@ -74,11 +76,11 @@ public class Proves {
 //        System.out.println(emp.consultarClient("87654321B"));
 //        emp.mostraVehicles();
 //        emp.mostraClients();
-        
+
         System.out.println(emp.consultaLloguerClient(cli3));
-//        LocalDate data1 = LocalDate.of(2018, 5, 21);
-//        LocalDate data2 = LocalDate.of(2018, 5, 25);
+        System.out.println(emp.consultaLloguerEmpresa(empLea1));
 //        System.out.println(emp.consultarLloguer(LocalDate.of(2018, 5, 21), LocalDate.of(2018, 5, 24)));
+        System.out.println("El preu del lloguer es : " + emp.calcularPreuLloguer(lloguer3));
 
     }
 

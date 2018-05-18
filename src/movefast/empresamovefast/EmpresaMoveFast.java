@@ -1,6 +1,7 @@
 package movefast.empresamovefast;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -87,7 +88,11 @@ public class EmpresaMoveFast {
     }
 
     public void crearLloguer(Lloguer ll) {
+//        if (consultarDisponibilitat(ll.getDataInici(), ll.getDataFi())) {
         lloguers.add(ll);
+//        } else {
+//            //no se que posar!
+//        }
     }
 
     public void crearEmpresaLeasing(EmpresaLeasing empLea) {
@@ -98,20 +103,31 @@ public class EmpresaMoveFast {
         return vehicles.get(matricula);
     }
 
+    public ArrayList<Vehicle> consultarVehicle(Vehicle v, LocalDate dataInici, LocalDate dataFi) {
+        ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
+
+        return vehicles;
+    }
+
     public Client consultarClient(String dni) {
         return clients.get(dni);
     }
 
-    public boolean consultarDisponibilitat(LocalDate dataInici, LocalDate dataFi) {
+    public boolean consultarDisponibilitat(LocalDate dataInici, LocalDate dataFi) {//no funciona
         boolean disponible = false;
-         for (Lloguer lloguer : lloguers) {
-            if (lloguer.getDataInici().isBefore(dataInici) && lloguer.getDataFi().isAfter(dataFi)) {
+        for (Lloguer lloguer : lloguers) {
+//            Versio Toni
+            if (dataInici.isAfter(lloguer.getDataFi()) || dataFi.isBefore(lloguer.getDataInici())) {
+                disponible = true;
+                return disponible;
+            }
+//            Versio Marc
+            if (!(lloguer.getDataInici().isBefore(dataInici) && lloguer.getDataFi().isAfter(dataFi))) {
                 disponible = true;
                 return disponible;
             }
         }
         return disponible;
-
     }
 
     public Lloguer consultarLloguer(LocalDate dataInici, LocalDate dataFi) {//metodo consultalloguerclient i consultarlloguerempresaleasing
@@ -124,7 +140,7 @@ public class EmpresaMoveFast {
         return null;
     }
 
-    public ArrayList<Lloguer> consultaLloguerClient(Client client) {
+    public ArrayList<Lloguer> consultaLloguerClient(Client client) {//no funciona
         ArrayList<Lloguer> lloguersClient = new ArrayList<Lloguer>();
 
         for (Lloguer lloguer : lloguers) {
@@ -132,6 +148,12 @@ public class EmpresaMoveFast {
                 lloguersClient.add(lloguer);
             }
         }
+        lloguersClient.sort((a, b) -> b.getDataInici().compareTo(a.getDataInici()));
+//        Collections.sort(lloguersClient, Collections.reverseOrder());
+
+//        List<CustomObject> list = getCustomObjectList();
+//        list.sort((left, right) -> left.getId() - right.getId());
+//        System.out.println(list);
         return lloguersClient;
     }
 
@@ -149,6 +171,7 @@ public class EmpresaMoveFast {
 //                lloguersEmpresa.add(lloguer);
 //            }
 //        }
+        lloguersEmpresa.sort((a, b) -> b.getDataInici().compareTo(a.getDataInici()));
         return lloguersEmpresa;
     }
 
@@ -158,14 +181,57 @@ public class EmpresaMoveFast {
 
     public void eliminarVehicle(String matricula) {
         if (vehicles.containsKey(matricula)) {
-            vehicles.remove(matricula);
+            Vehicle vehicle = vehicles.get(matricula);
+            if (vehicle != null) {
+                for (Lloguer lloguer : lloguers) {
+                    if (lloguer.getVehicle().equals(vehicle)) {
+                        return;
+                    }
+                }
+                clients.remove(matricula);
+            }
         }
+//        if (vehicles.containsKey(matricula)) {
+//            vehicles.remove(matricula);
+//        }
     }
 
     public void eliminarClient(String dni) {
         if (clients.containsKey(dni)) {
-            clients.remove(dni);
+            Client client = clients.get(dni);
+            if (client != null) {
+                for (Lloguer lloguer : lloguers) {
+                    if (lloguer.getClient().equals(client)) {
+                        return;
+                    }
+                }
+                clients.remove(dni);
+            }
         }
+//        if (clients.containsKey(dni)) {
+//            clients.remove(dni);
+//        }
+    }
+
+    public void eliminarEmpresaLeasing(String nom) {//es necesari?!
+
+    }
+
+    public double calcularPreuLloguer(Lloguer ll) {
+        long dies;
+        double preu;
+        double descompte;
+        dies = ChronoUnit.DAYS.between(ll.getDataInici(), ll.getDataFi()) + 1;
+
+        Vehicle v = ll.getVehicle();
+        if (ll.getClient() instanceof Casual) {
+            preu = dies * v.getPreuDia();
+        } else {
+            descompte = (dies * v.getPreuDia()) * 0.10;
+            preu = (dies * v.getPreuDia()) - descompte;
+        }
+        preu = dies * v.getPreuDia();
+        return preu;
     }
 
     public void obtenirDades(Client cli, Vehicle v) {
