@@ -235,7 +235,6 @@ public class EmpresaMoveFast {
             descompte = (dies * v.getPreuDia()) * 0.10;
             preu = (dies * v.getPreuDia()) - descompte;
         }
-        preu = dies * v.getPreuDia();
         return preu;
     }
 
