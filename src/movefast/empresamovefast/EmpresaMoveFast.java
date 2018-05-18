@@ -71,7 +71,7 @@ public class EmpresaMoveFast {
     }
 
     public Collection<Client> getClients() {
-        return clients.values();// no ha de retornar aixo
+        return clients.values();
     }
 
     @Override
@@ -135,7 +135,7 @@ public class EmpresaMoveFast {
         return disponible;
     }
 
-    public Lloguer consultarLloguer(LocalDate dataInici, LocalDate dataFi) {//metodo consultalloguerclient i consultarlloguerempresaleasing
+    public Lloguer consultarLloguer(LocalDate dataInici, LocalDate dataFi) {
 
         for (Lloguer lloguer : lloguers) {
             if (lloguer.getDataInici().equals(dataInici) && lloguer.getDataFi().equals(dataFi)) {
@@ -154,11 +154,6 @@ public class EmpresaMoveFast {
             }
         }
         lloguersClient.sort((a, b) -> b.getDataInici().compareTo(a.getDataInici()));
-//        Collections.sort(lloguersClient, Collections.reverseOrder());
-
-//        List<CustomObject> list = getCustomObjectList();
-//        list.sort((left, right) -> left.getId() - right.getId());
-//        System.out.println(list);
         return lloguersClient;
     }
 
@@ -171,11 +166,6 @@ public class EmpresaMoveFast {
                 lloguersEmpresa.add(lloguer);
             }
         }
-//        for (Lloguer lloguer : lloguers) {
-//            if (clients.containsValue(empLea)) {
-//                lloguersEmpresa.add(lloguer);
-//            }
-//        }
         lloguersEmpresa.sort((a, b) -> b.getDataInici().compareTo(a.getDataInici()));
         return lloguersEmpresa;
     }
@@ -196,9 +186,6 @@ public class EmpresaMoveFast {
                 clients.remove(matricula);
             }
         }
-//        if (vehicles.containsKey(matricula)) {
-//            vehicles.remove(matricula);
-//        }
     }
 
     public void eliminarClient(String dni) {
@@ -213,23 +200,20 @@ public class EmpresaMoveFast {
                 clients.remove(dni);
             }
         }
-//        if (clients.containsKey(dni)) {
-//            clients.remove(dni);
-//        }
     }
 
     public void eliminarEmpresaLeasing(String nom) {//es necesari?!
-             if (empLeasing.containsKey(nom)){
-                 EmpresaLeasing empresaLeasing = empLeasing.get(nom);
-                 if (empresaLeasing != null){
-                     for(Lloguer lloguer : lloguers){
-                         if (lloguer.getClient().equals(empresaLeasing)) {
-                             return;
-                         }
-                     }
-                     empLeasing.remove(nom);
-                 }
-             }
+        if (empLeasing.containsKey(nom)) {
+            EmpresaLeasing empresaLeasing = empLeasing.get(nom);
+            if (empresaLeasing != null) {
+                for (Lloguer lloguer : lloguers) {
+                    if (lloguer.getClient().equals(empresaLeasing)) {
+                        return;
+                    }
+                }
+                empLeasing.remove(nom);
+            }
+        }
     }
 
     public double calcularPreuLloguer(Lloguer ll) {
@@ -293,9 +277,5 @@ public class EmpresaMoveFast {
         }
         System.out.println("");
     }
-//    para recorrer hashmap
-//    for (Map.Entry<Integer, String> entry : datos.entrySet () ) {
-//    System.out.println("clave=" + entry.getKey() + ", valor=" + entry.getValue());
-//    }
 
 }
