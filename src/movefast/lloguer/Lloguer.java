@@ -77,9 +77,10 @@ public class Lloguer {
         return client;
     }
 
-    @Override
+@Override
     public String toString() {
-        return "Lloguer{" + "dataInici=" + dataInici + ", dataFi=" + dataFi + ", vehicle=" + vehicle + ", client=" + client + '}';
+        return "El Lloguer sol.licitat va des de " + dataInici + " fins a " + dataFi + " amb el vehicle " + vehicle + " perteneixent al client " + client + '}';
     }
+
 
 }

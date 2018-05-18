@@ -26,7 +26,7 @@ public class Cotxe extends Vehicle {
 
     @Override
     public String toString() {
-        return super.toString() + " Cotxe{" + "numeroPortes=" + numeroPortes + '}';
+        return super.toString() + " amb " + " numeroPortes " + numeroPortes ;
     }
 
 }
