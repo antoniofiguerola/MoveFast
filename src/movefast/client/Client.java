@@ -65,7 +65,7 @@ public abstract class Client {
 
     @Override
     public String toString() {
-        return "amb el " + " nom " + nom + ", cognom " + cognom + ", dni " + dni + ", direccio " + direccio + ", telefon " + telefon ;
+        return "amb el nom " + nom + ", cognom " + cognom + ", dni " + dni + ", direccio " + direccio + " i telefon " + telefon;
     }
 
 }

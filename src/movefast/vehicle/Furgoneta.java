@@ -10,8 +10,8 @@ public class Furgoneta extends Vehicle {
     protected boolean cargaSuperior;
 
     //constructor
-    public Furgoneta(String matricula, String bastidor, String marca, String model, int numeroPlaces, double preuDia,/* boolean disponible,*/ boolean cargaSuperior) {
-        super(matricula, bastidor, marca, model, numeroPlaces, preuDia/*, disponible*/);
+    public Furgoneta(String matricula, String bastidor, String marca, String model, int numeroPlaces, double preuDia, boolean cargaSuperior) {
+        super(matricula, bastidor, marca, model, numeroPlaces, preuDia);
         this.cargaSuperior = cargaSuperior;
     }
 
@@ -26,7 +26,7 @@ public class Furgoneta extends Vehicle {
 
     @Override
     public String toString() {
-        return super.toString() + "Furgoneta{" + "cargaSuperior=" + cargaSuperior + '}';
+        return super.toString() + " amb cargaSuperior " + cargaSuperior;
     }
 
 }

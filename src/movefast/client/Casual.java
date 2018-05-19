@@ -7,7 +7,7 @@ package movefast.client;
 public class Casual extends Client {
 
     //Atributs
-    protected TipusPagament tipusPagament; //fer enum
+    protected TipusPagament tipusPagament; //empram enum
 
     //constructor
     public Casual(String nom, String cognom, String dni, String direccio, int telefon, TipusPagament tipusPagament) {
@@ -25,7 +25,7 @@ public class Casual extends Client {
 
     @Override
     public String toString() {
-        return super.toString() + " es un tipus de client Casual " + " que paga amb " + tipusPagament;
+        return super.toString() + " es un tipus de client Casual que paga amb " + tipusPagament;
     }
 
 }

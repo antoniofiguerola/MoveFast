@@ -55,7 +55,7 @@ public class EmpresaLeasing {
 
     @Override
     public String toString() {
-        return "EmpresaLeasing{" + "nom=" + nom + ", direccio=" + direccio + ", telefon=" + telefon + ", contacte=" + contacte + '}';
+        return "Nom de la Empresa del client Leasing " + nom + ", amb direccio " + direccio + ", telefon " + telefon + " i contacte " + contacte;
     }
 
 }

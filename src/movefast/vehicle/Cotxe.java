@@ -10,8 +10,8 @@ public class Cotxe extends Vehicle {
     protected int numeroPortes;
 
     //constructor
-    public Cotxe(String matricula, String bastidor, String marca, String model, int numeroPlaces, double preuDia,/* boolean disponible,*/ int numeroPortes) {
-        super(matricula, bastidor, marca, model, numeroPlaces, preuDia/*, disponible*/);
+    public Cotxe(String matricula, String bastidor, String marca, String model, int numeroPlaces, double preuDia, int numeroPortes) {
+        super(matricula, bastidor, marca, model, numeroPlaces, preuDia);
         this.numeroPortes = numeroPortes;
     }
 
@@ -26,7 +26,7 @@ public class Cotxe extends Vehicle {
 
     @Override
     public String toString() {
-        return super.toString() + " amb " + " numeroPortes " + numeroPortes ;
+        return super.toString() + " amb " + " numeroPortes " + numeroPortes;
     }
 
 }

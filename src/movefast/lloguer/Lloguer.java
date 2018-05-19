@@ -1,10 +1,8 @@
 package movefast.lloguer;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import movefast.client.*;
 import movefast.vehicle.*;
-import movefast.empresamovefast.*;
 import movefast.utilitats.*;
 
 /**
@@ -25,7 +23,6 @@ public class Lloguer {
 //        this.dataFi = dataFi;
 //        this.vehicle = vehicle;
 //        this.client = client;
-
         setDataInici(dataInici);
         setDataFi(dataFi);
         setVehicle(vehicle);
@@ -77,10 +74,9 @@ public class Lloguer {
         return client;
     }
 
-@Override
+    @Override
     public String toString() {
-        return "El Lloguer sol.licitat va des de " + dataInici + " fins a " + dataFi + " amb el vehicle " + vehicle + " perteneixent al client " + client + '}';
+        return "El Lloguer sol.licitat va des de " + dataInici + " fins a " + dataFi + " amb el vehicle " + vehicle + " perteneixent al client " + client;
     }
-
 
 }
