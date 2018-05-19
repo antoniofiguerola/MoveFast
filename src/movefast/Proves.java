@@ -6,8 +6,7 @@
 package movefast;
 
 import java.time.LocalDate;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 import movefast.empresamovefast.*;
 import movefast.lloguer.*;
 import movefast.vehicle.*;
@@ -101,10 +100,11 @@ public class Proves {
             //        emp.mostraClients();
             //        System.out.println(emp.consultarClient("12345678A"));
             //        System.out.println(emp.consultarEmpresaLeasing("Empresa Miquel"));
+                    System.out.println(emp.consultarVehiclesDisponibles(moto1 ,LocalDate.of(2018, 5, 22), LocalDate.of(2018, 6, 13)));
             //        System.out.println(emp.consultaLloguerClient(clil3));
             //        System.out.println(emp.consultaLloguerEmpresa(empLea3));
             //        System.out.println(emp.consultarLloguer(LocalDate.of(2018, 5, 21), LocalDate.of(2018, 5, 24)));
-                    System.out.println("El preu del lloguer es : " + emp.calcularPreuLloguer(lloguer6));
+            //        System.out.println("El preu del lloguer es : " + emp.calcularPreuLloguer(lloguer6));
         } catch (Exepcio ex) {
             System.out.println(ex.getMessage());
         }

@@ -5,10 +5,10 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.Map;
 import movefast.client.*;
 import movefast.empresaleasing.*;
 import movefast.lloguer.*;
+import movefast.utilitats.*;
 import movefast.vehicle.*;
 
 /**
@@ -27,7 +27,7 @@ public class EmpresaMoveFast {
     private ArrayList<Lloguer> lloguers;
     private HashMap<String, EmpresaLeasing> empLeasing;
 
-    public EmpresaMoveFast(String nom, int telefon, String direccio, String contacte) {
+    public EmpresaMoveFast(String nom, int telefon, String direccio, String contacte) throws Exepcio {
         this.nom = nom;
         this.telefon = telefon;
         this.direccio = direccio;
@@ -87,11 +87,11 @@ public class EmpresaMoveFast {
         clients.put(cli.getDNI(), cli);
     }
 
-    public void crearLloguer(Lloguer ll) {
-        if (consultarDisponibilitat(ll.getDataInici(), ll.getDataFi(), ll.getVehicle())) {
+    public void crearLloguer(Lloguer ll) throws Exepcio {
+        if (consultarDisponibilitat(ll.getVehicle(), ll.getDataInici(), ll.getDataFi())) {
             lloguers.add(ll);
         } else {
-            //hem de posar excepcio
+            throw new Exepcio("El vehicle no esta disponible");
         }
     }
 
@@ -103,34 +103,86 @@ public class EmpresaMoveFast {
         return vehicles.get(matricula);
     }
 
-    public ArrayList<Vehicle> consultarVehicle(Vehicle v, LocalDate dataInici, LocalDate dataFi) {
-        ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
+    public ArrayList<Vehicle> consultarVehiclesDisponibles(Vehicle v, LocalDate dataInici, LocalDate dataFi) {
+        ArrayList<Vehicle> vehiclesdisponibles = new ArrayList<Vehicle>();
 
-        return vehicles;
+        for (Vehicle vehicle : vehicles.values()) {
+            if (v instanceof Cotxe) {
+                if (this.consultarDisponibilitat(v, dataInici, dataFi)) {
+                    vehiclesdisponibles.add(vehicle);
+                }
+            }
+            
+            if (v instanceof Motocicleta) {
+                if (!(this.consultarDisponibilitat(v, dataInici, dataFi))) {
+                    vehiclesdisponibles.add(vehicle);
+                }
+            }
+            
+            if (v instanceof Furgoneta) {
+                if (this.consultarDisponibilitat(v, dataInici, dataFi)) {
+                    vehiclesdisponibles.add(vehicle);
+                }
+            }
+            
+            if (v instanceof Camio) {
+                if (this.consultarDisponibilitat(v, dataInici, dataFi)) {
+                    vehiclesdisponibles.add(vehicle);
+                }
+            }
+        }
+
+        return vehiclesdisponibles;
     }
 
+//    public ArrayList<Vehicle> mostrarVehiclesDisponibles(String tipus, LocalDate dataInici, LocalDate dataDevolucio) throws NingunVehiculoDisponibleExeption {
+//        ArrayList<Vehicle> llistaVehicleDisponibles = new ArrayList<>();
+//        
+//        for (Vehicle x : flotaVehiculo.values()) {
+//            if (tipus.equalsIgnoreCase("Camio")) {
+//                if (x instanceof Camio) {
+//                    if (this.comprobacioDisponibilidad(x, dataInici, dataDevolucio)) {
+//                        llistaVehicleDisponibles.add(x);
+//                    }
+//                }
+//            }
+//            if (tipus.equalsIgnoreCase("Cotxe")) {
+//                if (x instanceof Cotxe) {
+//                    if (this.comprobacioDisponibilidad(x, dataInici, dataDevolucio)) {
+//                        llistaVehicleDisponibles.add(x);
+//                    }
+//                }
+//            }
+//            if (tipus.equalsIgnoreCase("Furgoneta")) {
+//                if (x instanceof Furgoneta) {
+//                    if (this.comprobacioDisponibilidad(x, dataInici, dataDevolucio)) {
+//                        llistaVehicleDisponibles.add(x);
+//                    }
+//                }
+//            }
+//            if (tipus.equalsIgnoreCase("Motocicleta")||tipus.equalsIgnoreCase("Moto")) {
+//                if (x instanceof Motocicleta) {
+//                    if (this.comprobacioDisponibilidad(x, dataInici, dataDevolucio)) {
+//                        llistaVehicleDisponibles.add(x);
+//                    }
+//                }
+//            }
+//        }
+//        return llistaVehicleDisponibles;
+//    }
     public Client consultarClient(String dni) {
         return clients.get(dni);
     }
 
-    public boolean consultarDisponibilitat(LocalDate dataInici, LocalDate dataFi, Vehicle v) {//no funciona
+    public boolean consultarDisponibilitat(Vehicle v, LocalDate dataInici, LocalDate dataFi) {
         boolean disponible = true;
 
         for (Lloguer lloguer : lloguers) {
 
-            if (lloguer.getVehicle().equals(v)) {
-
-            }
-//            Versio Toni
-            if (!(dataInici.isAfter(lloguer.getDataFi()) || dataFi.isBefore(lloguer.getDataInici()))) {
+            if (lloguer.getVehicle().equals(v) && (!(dataInici.isAfter(lloguer.getDataFi()) || dataFi.isBefore(lloguer.getDataInici())))) {
                 disponible = false;
                 return disponible;
             }
-//            Versio Marc
-//            if (!(lloguer.getDataInici().isBefore(dataInici) && lloguer.getDataFi().isAfter(dataFi))) {
-//                disponible = true;
-//                return disponible;
-//            }
         }
         return disponible;
     }
@@ -145,7 +197,7 @@ public class EmpresaMoveFast {
         return null;
     }
 
-    public ArrayList<Lloguer> consultaLloguerClient(Client client) {//no funciona
+    public ArrayList<Lloguer> consultaLloguerClient(Client client) {
         ArrayList<Lloguer> lloguersClient = new ArrayList<Lloguer>();
 
         for (Lloguer lloguer : lloguers) {
@@ -202,7 +254,7 @@ public class EmpresaMoveFast {
         }
     }
 
-    public void eliminarEmpresaLeasing(String nom) {//es necesari?!
+    public void eliminarEmpresaLeasing(String nom) {
         if (empLeasing.containsKey(nom)) {
             EmpresaLeasing empresaLeasing = empLeasing.get(nom);
             if (empresaLeasing != null) {
@@ -230,52 +282,6 @@ public class EmpresaMoveFast {
             preu = (dies * v.getPreuDia()) - descompte;
         }
         return preu;
-    }
-
-    public void obtenirDades(Client cli, Vehicle v) {
-        // farem un import de Field
-//        Field[] Clients = cli.getClass().getDeclaredFields();
-//        for (Field field : Clients) {
-//            try {
-//                String fieldName = field.getName();
-//                Object fieldValue = field.get(cli);
-//                System.out.println(fieldName + ":" + fieldValue);
-//            } catch (IllegalArgumentException | IllegalAccessException e) {
-//                e.printStackTrace();
-//            }
-        cli.getNom();
-        cli.getCognom();
-        cli.getDNI();
-        cli.getDireccio();
-        cli.getTelefon();
-        v.getBastidor();
-        v.getMarca();
-        v.getMatricula();
-        v.getModel();
-        v.getNumeroPlaces();
-        v.getPreuDia();
-    }
-
-    public void entregarVehicle() {
-
-    }
-
-    public void retirarVehicle() {
-
-    }
-
-    public void mostraVehicles() {
-        for (Map.Entry<String, Vehicle> entry : vehicles.entrySet()) {
-            System.out.println("clave=" + entry.getKey() + ", valor=" + entry.getValue());
-        }
-        System.out.println("");
-    }
-
-    public void mostraClients() {
-        for (Map.Entry<String, Client> entry : clients.entrySet()) {
-            System.out.println("clave=" + entry.getKey() + ", valor=" + entry.getValue());
-        }
-        System.out.println("");
     }
 
 }
