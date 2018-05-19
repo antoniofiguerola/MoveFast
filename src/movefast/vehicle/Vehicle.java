@@ -75,7 +75,7 @@ public abstract class Vehicle { //afegir abatract pq no volem crear objectes veh
 
     @Override
     public String toString() {
-        return " amb la " + " matricula " + matricula + ", bastidor " + bastidor + ", marca " + marca + ", model " + model + ", numeroPlaces " + numeroPlaces + ", preuDia " + preuDia;
+        return " Vehicle amb la " + " matricula " + matricula + ", bastidor " + bastidor + ", marca " + marca + ", model " + model + ", numeroPlaces " + numeroPlaces + ", preuDia " + preuDia;
     }
 
 }

@@ -183,7 +183,7 @@ public class EmpresaMoveFast {
                         return;
                     }
                 }
-                clients.remove(matricula);
+                vehicles.remove(matricula);
             }
         }
     }

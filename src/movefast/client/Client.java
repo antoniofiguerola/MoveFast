@@ -4,7 +4,7 @@ package movefast.client;
  *
  * @author Informatica
  */
-public abstract class Client {
+public abstract class Client { //afegir abatract pq no volem crear objectes client
 
     //Atributs
     protected String nom;
@@ -65,7 +65,7 @@ public abstract class Client {
 
     @Override
     public String toString() {
-        return "amb el nom " + nom + ", cognom " + cognom + ", dni " + dni + ", direccio " + direccio + " i telefon " + telefon;
+        return "Client amb el nom " + nom + ", cognom " + cognom + ", dni " + dni + ", direccio " + direccio + " i telefon " + telefon;
     }
 
 }
