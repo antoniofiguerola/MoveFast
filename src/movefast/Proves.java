@@ -90,6 +90,7 @@ public class Proves {
             emp.crearLloguer(lloguer4);
             emp.crearLloguer(lloguer5);
             emp.crearLloguer(lloguer6);
+            //        emp.consultarVehiclesDisponibles(moto1 ,LocalDate.of(2018, 5, 22), LocalDate.of(2018, 6, 13));
             //        emp.eliminarEmpresaLeasing("Empresa3");
             //        System.out.println(emp.consultarLloguer(50.0));
             //        emp.eliminarVehicle("4567def");
@@ -100,7 +101,7 @@ public class Proves {
             //        emp.mostraClients();
             //        System.out.println(emp.consultarClient("12345678A"));
             //        System.out.println(emp.consultarEmpresaLeasing("Empresa Miquel"));
-                    System.out.println(emp.consultarVehiclesDisponibles(moto1 ,LocalDate.of(2018, 5, 22), LocalDate.of(2018, 6, 13)));
+                    System.out.println(emp.consultarVehiclesDisponibles("Cotxe" ,LocalDate.of(2018, 5, 22), LocalDate.of(2018, 6, 13)));
             //        System.out.println(emp.consultaLloguerClient(clil3));
             //        System.out.println(emp.consultaLloguerEmpresa(empLea3));
             //        System.out.println(emp.consultarLloguer(LocalDate.of(2018, 5, 21), LocalDate.of(2018, 5, 24)));

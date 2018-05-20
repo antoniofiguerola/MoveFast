@@ -103,35 +103,43 @@ public class EmpresaMoveFast {
         return vehicles.get(matricula);
     }
 
-    public ArrayList<Vehicle> consultarVehiclesDisponibles(Vehicle v, LocalDate dataInici, LocalDate dataFi) {
+    public ArrayList<Vehicle> consultarVehiclesDisponibles(String tipus, LocalDate dataInici, LocalDate dataFi) {
         ArrayList<Vehicle> vehiclesdisponibles = new ArrayList<Vehicle>();
 
         for (Vehicle vehicle : vehicles.values()) {
-            if (v instanceof Cotxe) {
-                if (this.consultarDisponibilitat(v, dataInici, dataFi)) {
-                    vehiclesdisponibles.add(vehicle);
+            if (tipus.equalsIgnoreCase("Cotxe")) {
+                if (vehicle instanceof Cotxe) {
+                    if (this.consultarDisponibilitat(vehicle, dataInici, dataFi)) {
+                        vehiclesdisponibles.add(vehicle);
+                    }
                 }
             }
-            
-            if (v instanceof Motocicleta) {
-                if (!(this.consultarDisponibilitat(v, dataInici, dataFi))) {
-                    vehiclesdisponibles.add(vehicle);
-                }
-            }
-            
-            if (v instanceof Furgoneta) {
-                if (this.consultarDisponibilitat(v, dataInici, dataFi)) {
-                    vehiclesdisponibles.add(vehicle);
-                }
-            }
-            
-            if (v instanceof Camio) {
-                if (this.consultarDisponibilitat(v, dataInici, dataFi)) {
-                    vehiclesdisponibles.add(vehicle);
-                }
-            }
-        }
 
+            if (tipus.equalsIgnoreCase("Motocicleta")) {
+                if (vehicle instanceof Motocicleta) {
+                    if (this.consultarDisponibilitat(vehicle, dataInici, dataFi)) {
+                        vehiclesdisponibles.add(vehicle);
+                    }
+                }
+            }
+
+            if (tipus.equalsIgnoreCase("Furgoneta")) {
+                if (vehicle instanceof Furgoneta) {
+                    if (this.consultarDisponibilitat(vehicle, dataInici, dataFi)) {
+                        vehiclesdisponibles.add(vehicle);
+                    }
+                }
+            }
+
+            if (tipus.equalsIgnoreCase("Camio")) {
+                if (vehicle instanceof Camio) {
+                    if (this.consultarDisponibilitat(vehicle, dataInici, dataFi)) {
+                        vehiclesdisponibles.add(vehicle);
+                    }
+                }
+            }
+
+        }
         return vehiclesdisponibles;
     }
 
@@ -187,6 +195,21 @@ public class EmpresaMoveFast {
         return disponible;
     }
 
+//    public boolean isVehicleAvailable(Vehicle vehicle, LocalDate start, LocalDate finish) {
+//        // Recorremos todos los alquileres
+//            for (Rental actualRental : rentalList) {
+//                // Comprobamos que el alquiler actual tiene el vehiculo actual
+//                if (actualRental.getVehicle().equals(vehicle)) {
+//                    // Si las fechas no coinciden esta disponible
+//                    if (!actualRental.getFinishDate().isBefore(start) || actualRental.getStartDate().isAfter(finish)) {
+//                        // Como esta disponible devolvemos true
+//                        return false;
+//                    }
+//                }
+//            }
+//        // no esta disponible devolvemos false
+//        return true;
+//    }
     public Lloguer consultarLloguer(LocalDate dataInici, LocalDate dataFi) {
 
         for (Lloguer lloguer : lloguers) {
