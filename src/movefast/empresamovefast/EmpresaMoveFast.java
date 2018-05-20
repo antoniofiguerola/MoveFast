@@ -143,41 +143,6 @@ public class EmpresaMoveFast {
         return vehiclesdisponibles;
     }
 
-//    public ArrayList<Vehicle> mostrarVehiclesDisponibles(String tipus, LocalDate dataInici, LocalDate dataDevolucio) throws NingunVehiculoDisponibleExeption {
-//        ArrayList<Vehicle> llistaVehicleDisponibles = new ArrayList<>();
-//        
-//        for (Vehicle x : flotaVehiculo.values()) {
-//            if (tipus.equalsIgnoreCase("Camio")) {
-//                if (x instanceof Camio) {
-//                    if (this.comprobacioDisponibilidad(x, dataInici, dataDevolucio)) {
-//                        llistaVehicleDisponibles.add(x);
-//                    }
-//                }
-//            }
-//            if (tipus.equalsIgnoreCase("Cotxe")) {
-//                if (x instanceof Cotxe) {
-//                    if (this.comprobacioDisponibilidad(x, dataInici, dataDevolucio)) {
-//                        llistaVehicleDisponibles.add(x);
-//                    }
-//                }
-//            }
-//            if (tipus.equalsIgnoreCase("Furgoneta")) {
-//                if (x instanceof Furgoneta) {
-//                    if (this.comprobacioDisponibilidad(x, dataInici, dataDevolucio)) {
-//                        llistaVehicleDisponibles.add(x);
-//                    }
-//                }
-//            }
-//            if (tipus.equalsIgnoreCase("Motocicleta")||tipus.equalsIgnoreCase("Moto")) {
-//                if (x instanceof Motocicleta) {
-//                    if (this.comprobacioDisponibilidad(x, dataInici, dataDevolucio)) {
-//                        llistaVehicleDisponibles.add(x);
-//                    }
-//                }
-//            }
-//        }
-//        return llistaVehicleDisponibles;
-//    }
     public Client consultarClient(String dni) {
         return clients.get(dni);
     }
@@ -195,21 +160,6 @@ public class EmpresaMoveFast {
         return disponible;
     }
 
-//    public boolean isVehicleAvailable(Vehicle vehicle, LocalDate start, LocalDate finish) {
-//        // Recorremos todos los alquileres
-//            for (Rental actualRental : rentalList) {
-//                // Comprobamos que el alquiler actual tiene el vehiculo actual
-//                if (actualRental.getVehicle().equals(vehicle)) {
-//                    // Si las fechas no coinciden esta disponible
-//                    if (!actualRental.getFinishDate().isBefore(start) || actualRental.getStartDate().isAfter(finish)) {
-//                        // Como esta disponible devolvemos true
-//                        return false;
-//                    }
-//                }
-//            }
-//        // no esta disponible devolvemos false
-//        return true;
-//    }
     public Lloguer consultarLloguer(LocalDate dataInici, LocalDate dataFi) {
 
         for (Lloguer lloguer : lloguers) {
